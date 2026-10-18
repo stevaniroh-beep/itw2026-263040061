@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Mengetik Kode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 24px;
+        }
+
+        canvas,
+        video {
+            display: block;
+            width: min(100%, 640px);
+            height: auto;
+        }
+
+        #download {
+            display: none;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Mengetik Kode di Komputer</h1>
+    <p>Klip animasi berdurasi 14 detik ini akan dibuat otomatis. Tunggu hingga proses selesai.</p>
+
+    <canvas id="scene" width="960" height="540" aria-label="Animasi seseorang mengetik kode di komputer"></canvas>
+    <p id="status" role="status">Menyiapkan video...</p>
+    <video id="video" controls hidden>
+        <source src="mengetik-kode-14-detik.mp4" type="video/mp4">
+        <source src="mengetik-kode-14-detik.webm" type="video/webm">
+        Browser Anda tidak mendukung pemutaran video HTML5.
+    </video>
+    <a id="download" download="mengetik-kode-14-detik.webm">Unduh video (WebM)</a>
+
+    <script>
+        const canvas = document.querySelector("#scene");
+        const context = canvas.getContext("2d");
+        const status = document.querySelector("#status");
+        const video = document.querySelector("#video");
+        const download = document.querySelector("#download");
+        const duration = 14000;
+        const lines = [
+            "const salam = (nama) => {",
+            '  return `Halo, ${nama}!`;',
+            "};",
+            "",
+            'const hasil = salam("Dunia");',
+            "console.log(hasil);",
+            "",
+            "for (let i = 1; i <= 3; i++) {",
+            "  console.log(`Baris kode ${i}`);",
+            "}"
+        ];
+        const fullCode = lines.join("\n");
+        let animationFrame;
+
+        function draw(elapsed) {
+            const typedCharacters = Math.min(
+                fullCode.length,
+                Math.floor((elapsed / duration) * fullCode.length)
+            );
+            const visibleCode = fullCode.slice(0, typedCharacters).split("\n");
+
+            context.fillStyle = "#17202b";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            context.fillStyle = "#263445";
+            context.fillRect(115, 55, 730, 360);
+            context.fillStyle = "#0b1118";
+            context.fillRect(132, 72, 696, 326);
+
+            context.fillStyle = "#1d2938";
+            context.fillRect(132, 72, 696, 34);
+            ["#ff6b6b", "#ffd166", "#06d6a0"].forEach((color, index) => {
+                context.beginPath();
+                context.fillStyle = color;
+                context.arc(151 + index * 22, 89, 6, 0, Math.PI * 2);
+                context.fill();
+            });
+            context.fillStyle = "#a9b8ca";
+            context.font = "14px Arial";
+            context.fillText("editor-kode.js", 220, 94);
+
+            context.font = "20px Consolas, monospace";
+            visibleCode.forEach((line, index) => {
+                const y = 145 + index * 27;
+                context.fillStyle = "#73849a";
+                context.fillText(String(index + 1).padStart(2, "0"), 158, y);
+                context.fillStyle = line.trim().startsWith("const") || line.trim().startsWith("for")
+                    ? "#82aaff"
+                    : "#d6e2f0";
+                context.fillText(line, 202, y);
+            });
+
+            if (typedCharacters < fullCode.length && Math.floor(elapsed / 450) % 2 === 0) {
+                const lastLine = visibleCode[visibleCode.length - 1] || "";
+                const cursorX = 202 + context.measureText(lastLine).width + 2;
+                const cursorY = 129 + (visibleCode.length - 1) * 27;
+                context.fillStyle = "#f7d774";
+                context.fillRect(cursorX, cursorY, 2, 21);
+            }
+
+            context.fillStyle = "#8192a5";
+            context.beginPath();
+            context.moveTo(80, 418);
+            context.lineTo(880, 418);
+            context.lineTo(814, 456);
+            context.lineTo(146, 456);
+            context.closePath();
+            context.fill();
+            context.fillStyle = "#263445";
+            context.fillRect(390, 458, 180, 12);
+
+            context.fillStyle = "#18222e";
+            context.fillRect(230, 426, 500, 22);
+            for (let key = 0; key < 15; key++) {
+                const keyX = 239 + key * 32;
+                context.fillStyle = key === Math.floor((elapsed / 230) % 15)
+                    ? "#f7d774"
+                    : "#425267";
+                context.fillRect(keyX, 431, 23, 11);
+            }
+            context.fillStyle = "#425267";
+            context.fillRect(365, 441, 230, 5);
+        }
+
+        function animate(now) {
+            const elapsed = Math.min(now - startTime, duration);
+            draw(elapsed);
+            if (elapsed < duration) {
+                animationFrame = requestAnimationFrame(animate);
+            }
+        }
+
+        if (!context || !canvas.captureStream || !window.MediaRecorder) {
+            draw(duration);
+            status.textContent = "Browser ini tidak mendukung pembuatan video otomatis.";
+        } else {
+            const stream = canvas.captureStream(30);
+            const chunks = [];
+            let recorder;
+
+            try {
+                recorder = new MediaRecorder(stream);
+            } catch (error) {
+                draw(duration);
+                status.textContent = "Video tidak dapat dibuat: " + error.message;
+            }
+
+            if (recorder) {
+                recorder.addEventListener("dataavailable", (event) => {
+                    if (event.data.size > 0) chunks.push(event.data);
+                });
+                recorder.addEventListener("error", (event) => {
+                    status.textContent = "Perekaman gagal: " + event.error.message;
+                });
+                recorder.addEventListener("stop", () => {
+                    stream.getTracks().forEach((track) => track.stop());
+                    const clip = new Blob(chunks, { type: recorder.mimeType || "video/webm" });
+                    if (!clip.size) {
+                        status.textContent = "Perekaman selesai, tetapi video kosong. Coba muat ulang halaman.";
+                        return;
+                    }
+                    const clipUrl = URL.createObjectURL(clip);
+                    video.src = clipUrl;
+                    video.hidden = false;
+                    download.href = clipUrl;
+                    download.style.display = "inline-block";
+                    status.textContent = "Video 14 detik siap diputar atau diunduh.";
+                    canvas.hidden = true;
+                });
+
+                const startTime = performance.now();
+                draw(0);
+                recorder.start();
+                animationFrame = requestAnimationFrame(animate);
+                setTimeout(() => {
+                    cancelAnimationFrame(animationFrame);
+                    draw(duration);
+                    recorder.stop();
+                }, duration);
+            }
+        }
+    </script>
+</body>
+</html>
