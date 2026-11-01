@@ -1,0 +1,13 @@
+ h1 {
+            font-size: 120px;
+            font-family: arial;
+            color: lightgreen;
+            text-align: center;
+        }
+
+        p {
+            font-size: 30px;
+            font-family: arial;
+            color: navy;
+            text-align: center;
+        }
