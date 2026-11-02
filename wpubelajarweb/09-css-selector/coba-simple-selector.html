@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Simple Selector</title>
+    <style>
+        h1 {
+            color: red;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .highlight {
+            background-color: rgba(255, 255, 0, 0.5);
+        }
+
+        a {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Belajar Simple Selector</h1>
+
+    <h2>Judul Artikel 1</h2>
+    <p>Ini adalah paragraf biasa tanpa class.</p>
+
+    <h2>Judul Artikel 2</h2>
+    <p class="highlight">Paragraf ini diberi tanda stabilo menggunakan class highlight.</p>
+    <p><span class="highlight">Span ini juga memakai class highlight warna kuning transparan.</span></p>
+
+    <hr>
+
+    <form>
+        <p>
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama">
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </p>
+    </form>
+
+    <p><span style="font-style: italic;">Ini elemen miring</span> dan ini elemen <span>span</span>.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+
+    <p><a href="https://www.wpu-course.id">WPU Course.id</a></p>
+</body>
+</html>
