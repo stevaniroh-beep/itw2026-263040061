@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector 5 - Selector Kombinasi</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 32px 20px;
+            font-family: Arial, sans-serif;
+            color: #203047;
+            background: #f1f6fb;
+            line-height: 1.6;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2 { color: #174a75; }
+        h1 { text-align: center; }
+        section {
+            padding: 20px;
+            margin: 18px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(30, 65, 100, 0.1);
+        }
+        .demo p { color: #1769aa; }
+        .demo > p { font-weight: bold; }
+        h2, .catatan { text-decoration: underline; text-decoration-color: #54c6eb; }
+        pre {
+            overflow-x: auto;
+            padding: 14px;
+            border-radius: 8px;
+            background: #172435;
+            color: #e7f1ff;
+            white-space: pre-wrap;
+        }
+        code { font-family: Consolas, monospace; }
+        nav { display: flex; justify-content: space-between; margin-top: 20px; }
+        a { color: #1769aa; }
+        @media (max-width: 600px) { body { padding: 18px 12px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Belajar CSS Selector: 5</h1>
+        <section>
+            <h2>1. Selector grup</h2>
+            <p>Pisahkan beberapa selector dengan koma untuk memberi aturan yang sama pada elemen-elemen berbeda.</p>
+            <pre><code>h2, .catatan {
+    text-decoration: underline;
+}</code></pre>
+            <p class="catatan">Teks ini memakai gaya class catatan.</p>
+        </section>
+        <section class="demo">
+            <h2>2. Selector keturunan</h2>
+            <p>Spasi memilih elemen yang berada di dalam elemen lain, pada tingkat keturunan mana pun.</p>
+            <pre><code>/* Memilih semua p di dalam .demo */
+.demo p {
+    color: #1769aa;
+}</code></pre>
+            <div>
+                <p>Paragraf bersarang ini juga dipilih oleh .demo p.</p>
+            </div>
+        </section>
+        <section>
+            <h2>3. Selector anak langsung</h2>
+            <p>Tanda <code>&gt;</code> hanya memilih anak langsung, bukan elemen yang lebih dalam.</p>
+            <pre><code>/* Hanya p yang langsung berada di dalam .demo */
+.demo &gt; p {
+    font-weight: bold;
+}</code></pre>
+        </section>
+        <nav>
+            <a href="coba-background4.html">← Selector Class dan ID</a>
+            <a href="coba-background6.html">Selector Atribut →</a>
+        </nav>
+    </main>
+</body>
+</html>

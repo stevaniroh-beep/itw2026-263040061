@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector 3 - Selector Dasar</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 32px 20px;
+            font-family: Arial, sans-serif;
+            color: #203047;
+            background: #f1f6fb;
+            line-height: 1.6;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2 { color: #174a75; }
+        h1 { text-align: center; }
+        section {
+            padding: 20px;
+            margin: 18px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(30, 65, 100, 0.1);
+        }
+        .contoh p { color: #1769aa; }
+        .contoh h2 { border-bottom: 2px solid #54c6eb; }
+        pre {
+            overflow-x: auto;
+            padding: 14px;
+            border-radius: 8px;
+            background: #172435;
+            color: #e7f1ff;
+            white-space: pre-wrap;
+        }
+        code { font-family: Consolas, monospace; }
+        nav { display: flex; justify-content: flex-end; margin-top: 20px; }
+        a { color: #1769aa; }
+        @media (max-width: 600px) { body { padding: 18px 12px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Belajar CSS Selector: 3</h1>
+        <section>
+            <h2>Apa itu selector?</h2>
+            <p>Selector adalah pola yang dipakai CSS untuk memilih elemen HTML yang ingin diberi gaya. Aturan CSS terdiri dari selector dan deklarasi di dalam kurung kurawal.</p>
+            <pre><code>selector {
+    properti: nilai;
+}</code></pre>
+        </section>
+        <section class="contoh">
+            <h2>1. Selector elemen</h2>
+            <p>Selector elemen memilih semua elemen HTML dengan nama tag yang sama. Contoh ini membuat semua paragraf di kotak menjadi biru.</p>
+            <pre><code>p {
+    color: #1769aa;
+}</code></pre>
+            <p>Paragraf ini ikut dipilih oleh selector <code>p</code>.</p>
+            <p>Paragraf ini juga ikut dipilih.</p>
+        </section>
+        <section>
+            <h2>2. Universal selector</h2>
+            <p>Tanda bintang (<code>*</code>) memilih semua elemen. Biasanya dipakai untuk aturan umum, misalnya menghitung ukuran kotak dengan lebih mudah.</p>
+            <pre><code>* {
+    box-sizing: border-box;
+}</code></pre>
+        </section>
+        <nav><a href="coba-background4.html">Materi berikutnya: Selector Class dan ID →</a></nav>
+    </main>
+</body>
+</html>

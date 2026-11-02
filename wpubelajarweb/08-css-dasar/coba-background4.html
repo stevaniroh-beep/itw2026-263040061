@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector 4 - Class dan ID</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 32px 20px;
+            font-family: Arial, sans-serif;
+            color: #203047;
+            background: #f1f6fb;
+            line-height: 1.6;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2 { color: #174a75; }
+        h1 { text-align: center; }
+        section {
+            padding: 20px;
+            margin: 18px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(30, 65, 100, 0.1);
+        }
+        .penting { color: #1769aa; font-weight: bold; }
+        #pesan-utama {
+            padding: 12px;
+            border-left: 5px solid #f59e0b;
+            background: #fff7df;
+        }
+        pre {
+            overflow-x: auto;
+            padding: 14px;
+            border-radius: 8px;
+            background: #172435;
+            color: #e7f1ff;
+            white-space: pre-wrap;
+        }
+        code { font-family: Consolas, monospace; }
+        nav { display: flex; justify-content: space-between; margin-top: 20px; }
+        a { color: #1769aa; }
+        @media (max-width: 600px) { body { padding: 18px 12px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Belajar CSS Selector: 4</h1>
+        <section>
+            <h2>1. Selector class</h2>
+            <p>Class dipakai untuk mengelompokkan satu atau beberapa elemen. Di CSS, nama class diawali tanda titik. Di HTML, class ditulis dengan atribut <code>class</code>.</p>
+            <pre><code>/* CSS */
+.penting {
+    color: #1769aa;
+    font-weight: bold;
+}
+
+/* HTML */
+&lt;p class="penting"&gt;Teks penting&lt;/p&gt;</code></pre>
+            <p class="penting">Contoh teks dengan class penting.</p>
+            <p class="penting">Class yang sama dapat dipakai pada lebih dari satu elemen.</p>
+        </section>
+        <section>
+            <h2>2. Selector ID</h2>
+            <p>ID digunakan untuk menandai satu elemen tertentu. Selector ID di CSS diawali tanda pagar (<code>#</code>).</p>
+            <pre><code>/* CSS */
+#pesan-utama {
+    background: #fff7df;
+}
+
+/* HTML */
+&lt;p id="pesan-utama"&gt;Pesan utama&lt;/p&gt;</code></pre>
+            <p id="pesan-utama">Elemen ini dipilih oleh selector <code>#pesan-utama</code>.</p>
+            <p>Gunakan class jika gaya perlu diterapkan ke banyak elemen. Setiap ID sebaiknya unik dalam satu halaman.</p>
+        </section>
+        <nav>
+            <a href="coba-background3.html">← Selector Dasar</a>
+            <a href="coba-background5.html">Selector Kombinasi →</a>
+        </nav>
+    </main>
+</body>
+</html>

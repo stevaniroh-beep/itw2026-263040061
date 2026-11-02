@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar CSS Background</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 32px 20px;
+            font-family: Arial, sans-serif;
+            color: #203047;
+            background-color: #f1f6fb;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: #174a75;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .intro, .lesson {
+            padding: 20px;
+            margin: 18px 0;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(30, 65, 100, 0.1);
+        }
+
+        .demo {
+            min-height: 140px;
+            display: grid;
+            place-items: center;
+            margin: 14px 0;
+            padding: 20px;
+            border-radius: 8px;
+            color: #17324d;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-demo {
+            background-color: lightblue;
+        }
+
+        .image-demo {
+            color: white;
+            background-image: linear-gradient(135deg, #1769aa, #54c6eb);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .position-demo {
+            background-color: #e3f2fd;
+            background-image: radial-gradient(circle, #1976d2 8px, transparent 9px);
+            background-repeat: no-repeat;
+            background-position: right 20px bottom 20px;
+            background-size: 70px 70px;
+        }
+
+        .gradient-demo {
+            color: white;
+            background-image: linear-gradient(120deg, #4f46e5, #06b6d4);
+        }
+
+        pre {
+            overflow-x: auto;
+            padding: 14px;
+            border-radius: 8px;
+            background-color: #172435;
+            color: #e7f1ff;
+            white-space: pre-wrap;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 18px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Belajar CSS Background</h1>
+        <section class="intro">
+            <p>Background digunakan untuk mengatur tampilan latar belakang elemen HTML. Ikuti langkah-langkah berikut dan amati contoh hasilnya.</p>
+        </section>
+
+        <section class="lesson">
+            <h2>1. Mengatur warna latar</h2>
+            <p>Gunakan <code>background-color</code> untuk memberi warna. Warna dapat ditulis dengan nama, kode HEX, atau fungsi RGB.</p>
+            <div class="demo color-demo">Contoh: background berwarna lightblue</div>
+            <pre><code>.kotak {
+    background-color: lightblue;
+}</code></pre>
+        </section>
+
+        <section class="lesson">
+            <h2>2. Memasang gambar atau gradasi</h2>
+            <p>Properti <code>background-image</code> menerima alamat gambar atau gradasi. Contoh di bawah memakai gradasi agar tetap tampil tanpa file gambar tambahan.</p>
+            <div class="demo image-demo">Contoh: background gradasi</div>
+            <pre><code>/* Memakai gambar dari file */
+.kotak {
+    background-image: url("gambar.jpg");
+}
+
+/* Alternatif: gradasi warna */
+.kotak {
+    background-image: linear-gradient(135deg, #1769aa, #54c6eb);
+}</code></pre>
+        </section>
+
+        <section class="lesson">
+            <h2>3. Mengatur pengulangan, posisi, dan ukuran</h2>
+            <p><code>background-repeat</code> mengatur pengulangan gambar, <code>background-position</code> mengatur letaknya, dan <code>background-size</code> mengatur ukurannya. Nilai <code>cover</code> membuat gambar menutupi area elemen.</p>
+            <div class="demo position-demo">Contoh: pola berada di kanan bawah</div>
+            <pre><code>.kotak {
+    background-repeat: no-repeat;
+    background-position: right 20px bottom 20px;
+    background-size: 70px 70px;
+}</code></pre>
+            <p>Nilai umum <code>background-size</code>: <code>cover</code>, <code>contain</code>, atau ukuran tertentu seperti <code>200px 100px</code>.</p>
+        </section>
+
+        <section class="lesson">
+            <h2>4. Membuat gradasi</h2>
+            <p>Gradasi adalah latar yang berubah warna secara halus. Gunakan <code>linear-gradient()</code> untuk arah lurus atau <code>radial-gradient()</code> untuk pola melingkar.</p>
+            <div class="demo gradient-demo">Contoh: linear-gradient</div>
+            <pre><code>.kotak {
+    background-image: linear-gradient(120deg, #4f46e5, #06b6d4);
+}</code></pre>
+        </section>
+
+        <section class="lesson">
+            <h2>5. Menulis background secara ringkas</h2>
+            <p>Properti <code>background</code> dapat menggabungkan warna, gambar, posisi, ukuran, dan pengulangan dalam satu deklarasi.</p>
+            <pre><code>.kotak {
+    background: lightblue url("gambar.jpg") center / cover no-repeat;
+}</code></pre>
+            <p>Mulailah dari warna sederhana, lalu tambahkan gambar atau gradasi dan atur tampilannya sesuai kebutuhan.</p>
+        </section>
+    </main>
+</body>
+</html>

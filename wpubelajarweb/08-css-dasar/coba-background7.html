@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector 7 - Pseudo-class dan Specificity</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 32px 20px;
+            font-family: Arial, sans-serif;
+            color: #203047;
+            background: #f1f6fb;
+            line-height: 1.6;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2 { color: #174a75; }
+        h1 { text-align: center; }
+        section {
+            padding: 20px;
+            margin: 18px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(30, 65, 100, 0.1);
+        }
+        .tombol {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 6px;
+            background: #1769aa;
+            color: white;
+            text-decoration: none;
+        }
+        .tombol:hover { background: #0f4775; }
+        .tombol:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
+        .daftar li:first-child { color: #1769aa; font-weight: bold; }
+        .daftar li:nth-child(even) { background: #e3f2fd; }
+        pre {
+            overflow-x: auto;
+            padding: 14px;
+            border-radius: 8px;
+            background: #172435;
+            color: #e7f1ff;
+            white-space: pre-wrap;
+        }
+        code { font-family: Consolas, monospace; }
+        nav { display: flex; justify-content: space-between; margin-top: 20px; }
+        a { color: #1769aa; }
+        @media (max-width: 600px) { body { padding: 18px 12px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Belajar CSS Selector: 7</h1>
+        <section>
+            <h2>1. Pseudo-class untuk keadaan elemen</h2>
+            <p>Pseudo-class memilih elemen berdasarkan keadaan atau posisinya. Contohnya <code>:hover</code> saat pointer berada di atas tautan dan <code>:focus-visible</code> saat elemen mendapat fokus keyboard.</p>
+            <a class="tombol" href="#daftar">Arahkan atau fokuskan saya</a>
+            <pre><code>.tombol:hover {
+    background: #0f4775;
+}
+
+.tombol:focus-visible {
+    outline: 3px solid #f59e0b;
+}</code></pre>
+        </section>
+        <section>
+            <h2>2. Pseudo-class berdasarkan posisi</h2>
+            <p><code>:first-child</code> memilih anak pertama, sedangkan <code>:nth-child(even)</code> memilih anak pada urutan genap.</p>
+            <ul class="daftar" id="daftar">
+                <li>Item pertama</li>
+                <li>Item kedua</li>
+                <li>Item ketiga</li>
+                <li>Item keempat</li>
+            </ul>
+            <pre><code>.daftar li:first-child {
+    font-weight: bold;
+}
+
+.daftar li:nth-child(even) {
+    background: #e3f2fd;
+}</code></pre>
+        </section>
+        <section>
+            <h2>3. Specificity secara singkat</h2>
+            <p>Jika beberapa aturan memilih elemen yang sama, browser mempertimbangkan specificity. Secara umum, selector ID lebih spesifik daripada class, dan class lebih spesifik daripada selector elemen. Jika tingkatnya sama, aturan yang ditulis belakangan biasanya menang.</p>
+            <pre><code>p { color: navy; }          /* elemen */
+.pesan { color: green; }   /* class: lebih spesifik */
+#utama { color: red; }     /* ID: lebih spesifik lagi */</code></pre>
+        </section>
+        <section>
+            <h2>Ringkasan materi</h2>
+            <p>Selector elemen, universal, class, ID, grup, keturunan, anak, atribut, saudara, dan pseudo-class membantu memilih elemen secara tepat. Gunakan selector sesederhana mungkin agar CSS mudah dibaca.</p>
+        </section>
+        <nav>
+            <a href="coba-background6.html">← Selector Atribut</a>
+            <a href="coba-background3.html">Ulangi materi Selector ↑</a>
+        </nav>
+    </main>
+</body>
+</html>

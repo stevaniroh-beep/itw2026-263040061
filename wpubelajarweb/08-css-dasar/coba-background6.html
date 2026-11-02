@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector 6 - Selector Atribut dan Saudara</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 32px 20px;
+            font-family: Arial, sans-serif;
+            color: #203047;
+            background: #f1f6fb;
+            line-height: 1.6;
+        }
+        main { max-width: 900px; margin: 0 auto; }
+        h1, h2 { color: #174a75; }
+        h1 { text-align: center; }
+        section {
+            padding: 20px;
+            margin: 18px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(30, 65, 100, 0.1);
+        }
+        a[target="_blank"] { color: #b45309; font-weight: bold; }
+        .rangkaian h3 + p { color: #1769aa; }
+        .rangkaian h3 ~ p { border-left: 3px solid #54c6eb; padding-left: 10px; }
+        pre {
+            overflow-x: auto;
+            padding: 14px;
+            border-radius: 8px;
+            background: #172435;
+            color: #e7f1ff;
+            white-space: pre-wrap;
+        }
+        code { font-family: Consolas, monospace; }
+        nav { display: flex; justify-content: space-between; margin-top: 20px; }
+        a { color: #1769aa; }
+        @media (max-width: 600px) { body { padding: 18px 12px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Belajar CSS Selector: 6</h1>
+        <section>
+            <h2>1. Selector atribut</h2>
+            <p>Selector atribut memilih elemen berdasarkan keberadaan atau nilai atribut HTML tertentu.</p>
+            <pre><code>/* Memilih tautan yang dibuka di tab baru */
+a[target="_blank"] {
+    color: #b45309;
+}</code></pre>
+            <p><a href="coba-background6.html" target="_blank" rel="noopener">Tautan dengan target="_blank"</a></p>
+        </section>
+        <section class="rangkaian">
+            <h2>2. Selector saudara</h2>
+            <h3>Judul contoh</h3>
+            <p>Selector <code>+</code> memilih paragraf pertama yang langsung mengikuti h3.</p>
+            <p>Selector <code>~</code> memilih semua paragraf saudara setelah h3.</p>
+            <pre><code>h3 + p { color: #1769aa; } /* saudara langsung */
+h3 ~ p { border-left: 3px solid #54c6eb; } /* semua saudara berikutnya */</code></pre>
+        </section>
+        <nav>
+            <a href="coba-background5.html">← Selector Kombinasi</a>
+            <a href="coba-background7.html">Pseudo-class dan Specificity →</a>
+        </nav>
+    </main>
+</body>
+</html>
