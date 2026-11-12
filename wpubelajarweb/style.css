@@ -1,0 +1,295 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img,
+video {
+    height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+html{
+    background-color: #1a1a1a;
+}
+
+.profile-card p {
+    font-family: "Inter", sans-serif;
+}
+
+header h1,
+h2,
+h3 {
+    font-family: "Playfair Display", serif;
+}
+
+header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+header .genre-tags {
+    margin-top: 10px;
+}
+
+header .genre-tags .tag {
+    display: inline-block;
+    background-color: #86b6d4;
+    padding: 6px 16px;
+    margin: 0 5px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+main {
+     width: min(900px, 100%);
+     margin: 0 auto;
+     padding: 20px;
+}
+
+main .profile-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgb(0, 0, 0, 0.1);
+    margin: 30px 0;
+    text-align: center;
+}
+
+main .profile-card .profile-image {
+    display: block;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #06b6d4;
+    object-fit: cover;
+    margin: 0 auto 20px;
+}
+
+main .profile-card .bio {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+main .profile-card .bio p {
+    margin-bottom: 15px;
+}
+
+main .profile-card .stats{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+main .profile-card .stats .stats-item {
+    display: inline-block;
+    width: 150px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #bdf5ff;
+}
+
+main .profile-card .stats .stats-item .stats-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #06b6d4;
+}
+
+main .profile-card .stats .stats-item .stats-label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+main .discography {
+    margin: 50px 0;
+}
+
+main .discography h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+main .discography .album-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+main .discography .album-card {
+    display: inline-block;
+    width: 100%;
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+main .discography .album-card h3 {
+    min-height: 3em;
+}
+
+main .discography .album-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+main .discography .sosial-links {
+    grid-column: 1 / -1;
+    text-align: left;
+}
+
+main .discography .sosial-links h2,
+main .sosial-links h2 {
+    text-align: left;
+
+}
+
+@media (max-width: 640px) {
+    main .discography .album-list {
+        grid-template-columns: 1fr;
+    }
+
+    main .discography .sosial-links {
+        grid-column: auto;
+    }
+}
+
+main .discography .album-list .album-card h3 {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+main .discography .album-list .album-card p {
+    font-size: 0.9em;   color: #666;
+    margin-bottom: 15px;
+}
+
+main .discography .album-list .album-card .btn-listen {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #06b6d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+}
+
+main .discography .album-list .album-card .btn-listen:hover {
+    background-color: #5edaf0;
+}
+
+main .sosial-links {
+    text-align: center;
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 12px;
+    margin: 30px 0;
+}
+
+main.sosial-links.sosial-btn{
+    display: inline-block ;
+    background-color: #1a1a1a;
+    color: #f9f9f9;
+    padding: 12px 30px;
+    margin: 10px;
+    border-radius: 26px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main.sosial-links.sosial-btn.hover{
+    background-color: #333;
+}
+
+footer{
+    text-align: center;
+    padding: 30px;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    margin-top: 40px;
+}
+
+footer.p{
+    margin-bottom: 10px;
+}
+
+footer.a{
+    color: #06b6d4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+footer.a.hover{
+    text-decoration: underline;
+}
