@@ -204,13 +204,12 @@ main .discography .album-card img {
 
 main .discography .sosial-links {
     grid-column: 1 / -1;
-    text-align: left;
+    text-align: center;
 }
 
 main .discography .sosial-links h2,
 main .sosial-links h2 {
-    text-align: left;
-
+    text-align: center;
 }
 
 @media (max-width: 640px) {
